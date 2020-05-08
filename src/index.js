@@ -1,12 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Homepage from './components/HomePage';
+import ProductPage from './components/ProductPage';
 import * as serviceWorker from './serviceWorker';
+import {
+  Route,
+  BrowserRouter as Router,
+} from "react-router-dom";
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router >
+      <Route path='/' component={Homepage} />
+      <Route path='/productPage' component={ProductPage} />
+    </Router>
+    
   </React.StrictMode>,
   document.getElementById('root')
 );

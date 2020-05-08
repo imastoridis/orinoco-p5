@@ -5,10 +5,9 @@ import ProductTile from './ProductTile'
 import Footer from './Footer'
 
 
-
 function HomePage() {
     return (
-            <body className="App">
+            <div className="App">
                 <section id="main-container">
                     <Header />
                     <main>
@@ -18,7 +17,7 @@ function HomePage() {
                     </main>
                     <Footer />
                 </section>  
-            </body>
+            </div>
     )
 }
 

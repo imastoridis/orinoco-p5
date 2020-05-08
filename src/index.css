@@ -96,7 +96,7 @@ img {
 }
 
 .header__img {
-  /*background-image: url("./images/background.jpg");*/
+  background-image: url("./images/background.jpg");
   background-color: #cccccc;
   height: 500px;
   background-position: center;
@@ -171,23 +171,7 @@ footer {
 .product__image--vintage-chair {
   height: 450px;
 }
-/*
-.product__image--cross-table {
-  background-image: url("images/oak_1.jpg" );
-}
-.product__image--coffee-table {
-  background-image: url("images/oak_2.jpg" );
-}
-.product__image--dining-table {
-  background-image: url("images/oak_3.jpg" );
-}
-.product__image--bench {
-  background-image: url("images/oak_4.jpg" );
-}
-.product__image--vintage-chair {
-  background-image: url("images/oak_5.jpg" );
-}
-*/
+
 
 /* BUTTON */
 .btn {

@@ -1,20 +1,31 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 
 
-function ProductButton() {
-    const [items, setItems] = useState(null);
-    const apiURL = 'https://www.anapioficeandfire.com/api/books?pageSize=30';
-    const myApi = 'api/furniture'
+class ProductButton extends React.Component {
     
+    
+    
+  removeFruit(products) {
+    //alert(products)
     return (
-        function fetchItems() {
-            fetch(apiURL)
-                .then(resp=>resp.json())
-                .then(data=>setItems(data))
+        this.products.item.name)
+  }
+    
+      render() {
+        return (
+            <ul>
+              {this.state.products.map((item) => (
+                <li>
+                  <button onClick={() => this.removeFruit(item)}>
+                    Click Here
+                  </button>
+                </li>
+              ))}
+            </ul>
+          );
         }
+    }
 
-    )
-}
 
 export default ProductButton
