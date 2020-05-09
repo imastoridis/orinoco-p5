@@ -1,80 +1,50 @@
-import React from 'react'
-import ProductPage from './ProductPage'
+import React, {useState, useEffect} from 'react'
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
   Link,
-  useHistory
 } from "react-router-dom";
 
+function ProductTile() {
+    useEffect(()=> {
+        fetchItems();
+    }, []);
 
-class ProductTile extends React.Component {
-  constructor() {
-        super();
-        this.state = {
-          isReady: false,
-          products: []
-        }
-      }
-    
-      componentDidMount(): void {
-        fetch("http://localhost:3000/api/furniture")
-          .then(
-            res => res.json()).then((d) => {
-              this.setState({products: [...d], isReady:true})    
-            })
-      }'test'
-      
+    const [items, setItems] = useState([]);
 
-      showProductPage(products) {
-        const newProduct = [products]
-        console.log(newProduct)
-        
-        return (
-          <ProductPage/>
-        )
-      }
-
-      render() {
-        const myProducts = this.state.isReady ? this.state.products.map(p =>
-        <div className="product" key={p._id}>
-          <div className="product__specs">
-            <h3>Meubles en chêne</h3>
-              <p>Vernis : {p._varnish}</p>
-              <p>Produit : {p.name}</p>
-              <p>Prix : {p.price}</p>
-              <p>Description : {p.description}</p> 
-              <Link to='/productPage'>
-                Product page
-              </Link>  
-          </div>
-
-          <div className="product__specs">
-            <img src={p.imageUrl} alt={'test'}/>
-          </div>
-            
-          <div>
-            <Link to='/productPage'>
-              <button onClick={()=> this.showProductPage(p)}>
-                        Click Here
-              </button>
-            </Link>
-
-            <Route exact path="/productPage" component={ProductPage}>
-              <ProductPage />
-            </Route>
-            
-          </div>
-        </div>):null
-         
-          return (
-            <React.Fragment>
-              {this.state.isReady && this.state.products.length > 0 ? myProducts : null}
-            </React.Fragment>
-          )
-      }
-    }
+    const fetchItems = async () => {
+      const data = await fetch('http://localhost:3000/api/furniture')
   
-export default ProductTile 
+      const items = await data.json();
+      console.log(items)
+      setItems(items)
+    };
 
+    return (
+      <div>
+          {items.map(item =>
+              <div className="product" key={item._id}>
+              <div className="product__specs">
+                <h3>Meubles en chêne</h3>
+                  <p>Vernis : {item._varnish}</p>
+                  <p>Produit : {item.name}</p>
+                  <p>Prix : {item.price}</p>
+                  <p>Description : {item.description}</p> 
+              </div>
+    
+              <div className="product__specs">
+                <img src={item.imageUrl} alt={'test'}/>
+                <Link to={`/productPage/${item._id}`}>
+                  <div>
+                      <br></br>
+                      <button className="btn-style btn__image-style">
+                          Selectionnez
+                      </button>    
+                  </div>
+                </Link>
+              </div>
+              </div>
+              )}
+      </div>
+    )
+}
+
+export default ProductTile

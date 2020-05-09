@@ -7,14 +7,19 @@ import * as serviceWorker from './serviceWorker';
 import {
   Route,
   BrowserRouter as Router,
+  Switch
 } from "react-router-dom";
 
 
 ReactDOM.render(
   <React.StrictMode>
     <Router >
-      <Route path='/' component={Homepage} />
-      <Route path='/productPage' component={ProductPage} />
+      <Switch>
+        <Route path='/' exact component={Homepage} />
+        <Route path='/productPage/:_id' component={ProductPage} />
+        <Route path='/productPage' component={ProductPage} />
+        
+      </Switch>
     </Router>
     
   </React.StrictMode>,
