@@ -1,6 +1,10 @@
 import React, {useState, useEffect} from 'react'
+import {
+    Link,
+  } from "react-router-dom";
 import Header from './Header'
 import Footer from './Footer'
+
 
 function ProductPage({match}) {
     useEffect(()=> {
@@ -10,15 +14,24 @@ function ProductPage({match}) {
 
     const [item, setItem] = useState({});
 
+///Fetch data 
     const fetchItem = async () => {
         const fetchItem = await fetch(`http://localhost:3000/api/furniture/${match.params._id}`)
-    
         const item = await fetchItem.json();
         setItem(item)
-        //console.log(item)
+        //console.log(item)           
     };
+    
+///Save data on localStorage   
+    function storeData() {
+        let setData = localStorage.setItem('myData', JSON.stringify(item));
+        let getData = localStorage.getItem('myData')
+         getData = JSON.parse(getData)
+        console.log(getData)
+        }
 
     return (
+              
         <div className="App">
             <section id="main-container">
                 <Header />
@@ -52,7 +65,9 @@ function ProductPage({match}) {
                             </form>
                         </div>
                         <div className="btn product-page__btn">
-                            <button type="button" className="btn-style btn__image-style">Valider</button>
+                            <Link to ={`/cartPage`}>
+                            <button onClick={storeData} type="button" className="btn-style btn__image-style">Valider</button>
+                            </Link>
                         </div> 
                     </section>
                 </main>

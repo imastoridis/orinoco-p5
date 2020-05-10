@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
-
+import {
+    Link,
+  } from "react-router-dom";
 
 function ProductItem({match}) {
     useEffect(()=> {
@@ -15,6 +17,12 @@ function ProductItem({match}) {
         const item = await fetchItem.json();
         setItem(item)
         console.log(item)
+
+///Save data on localStorage       
+        let setData = localStorage.setItem('#_id', JSON.stringify(item));
+        let getData = localStorage.getItem('#_id')
+        getData = JSON.parse(getData)
+        //console.log(getData)
     };
 
     return (
@@ -38,7 +46,7 @@ function ProductItem({match}) {
 
             <div className="product-page__form">
                 <form  action="panier.html">
-                    <label for="vernis" className="product-page__form--label"> Selectionnez votre vernis</label>
+                    <label for="vernis" className="product-page__form--label"> Selesctionnez votre vernis</label>
                         <div>
                             <select id="vernis">
                                 {<option value="dark-Oak">{item.varnish}</option>}
@@ -50,7 +58,9 @@ function ProductItem({match}) {
             </div>
             
             <div className="btn product-page__btn">
-                <button type="button" className="btn-style btn__image-style">Valider</button>
+                <Link to ={`/cartPage`}>
+                    <button type="button" className="btn-style btn__image-style">Valider</button>
+                </Link>
             </div>  
 
         </section>
