@@ -12,7 +12,6 @@ function ProductTile() {
 
     const fetchItems = async () => {
       const data = await fetch('http://localhost:3000/api/furniture')
-  
       const items = await data.json();
       console.log(items)
       setItems(items)
@@ -24,7 +23,7 @@ function ProductTile() {
               <div className="product" key={item._id}>
               <div className="product__specs">
                 <h3>Meubles en chêne</h3>
-                  <p>Vernis : {item._varnish}</p>
+                  <p>Vernis : {item.varnish}</p>
                   <p>Produit : {item.name}</p>
                   <p>Prix : {item.price}</p>
                   <p>Description : {item.description}</p> 

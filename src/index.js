@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Homepage from './components/HomePage';
 import ProductPage from './components/ProductPage';
-import cartPage from './components/cartPage';
+import CartPage from './components/CartPage';
 import * as serviceWorker from './serviceWorker';
 import {
   Route,
@@ -20,7 +20,8 @@ ReactDOM.render(
         <Route path='/' exact component={Homepage} />
         <Route path='/productPage/:_id' component={ProductPage} />
         <Route path='/productPage' component={ProductPage} />
-        <Route path='/cartPage' component={cartPage} />
+        <Route path='/cartPage' component={CartPage} />
+       
         
       </Switch>
     </Router>

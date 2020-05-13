@@ -5,7 +5,7 @@ import {
 
 
 
-function Header() {
+function HeaderCart() {
     return (
         <div>
             <nav className="navbar">
@@ -22,14 +22,14 @@ function Header() {
                     </li>
                 </ul>           
             </nav> 
-            <header className="header header__img">
+            {/*<header className="header header__img">
                 <div className="header__banner">
-                    <h2 className="header__banner--title"> Découvrez nos collections de meubles en chêne massif pour le salon, la salle à manger et la chambre.</h2>
-                    <h2 className="header__banner--subtitle"> Des meubles en chêne massif pleins de caractère</h2>
+                    <h2 className="header__banner--title"> </h2>
+                    <h2 className="header__banner--subtitle"> </h2>
                 </div>
-            </header>
+    </header>*/}
         </div>
     )
 }
 
-export default Header
+export default HeaderCart
