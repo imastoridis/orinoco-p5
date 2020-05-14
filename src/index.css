@@ -161,7 +161,7 @@ footer {
   text-align: center;
 }
 .btn-style {
- width: 100%;
+  width: 100%;
   border: none;
   height: auto;
   margin: 2rem 0 2rem 0;
@@ -257,8 +257,20 @@ tr:nth-child(even) {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 2rem;
   width: 100%;
+}
+
+
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  width: 100%;
+
+}
+.form__button{
+  width: 40%;
 }
 
 #form input {
@@ -375,7 +387,7 @@ Media querries
     background-color: #212931;
     transition: background-color 200ms ease-in-out;
     cursor: pointer;
-    width: 40%;
+    width: 100%;
     color: white;
   }
 

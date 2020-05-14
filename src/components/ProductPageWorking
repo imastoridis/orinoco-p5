@@ -1,35 +1,91 @@
 import React, {useState, useEffect} from 'react'
 import {
     Link,
-  } from "react-router-dom";
+} from "react-router-dom";
 import Header from './Header'
 import Footer from './Footer'
-
 
 function ProductPage({match}) {
     useEffect(()=> {
         fetchItem();
         //console.log(match)
     }, []);
+    const [error, setError] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [item, setItem] = useState([]);
 
-    const [item, setItem] = useState({});
-
-///Fetch data 
+///Fetch data from API
     const fetchItem = async () => {
         const fetchItem = await fetch(`http://localhost:3000/api/furniture/${match.params._id}`)
         const item = await fetchItem.json();
-        setItem(item)
-        //console.log(item)           
-    };
+        console.log(item) 
+        console.log(item.varnish)
+        setItem(item)          //Object
+    }
+
+    //let arr2 = Object.keys(item) //Array
+    //console.log(fetchItem(item))
     
-///Save data on localStorage   
+    
+///Map through varnish and render the list //NOT WORKINGs
+    /*var varni = JSON.parse(localStorage.getItem("allItems"));
+    localStorage.setItem('item', JSON.stringify(item));
+    console.log(varni)
+
+    function ListVarnish() {
+            return (
+            <div>
+                {varni.map(oneItem=> (
+                    <form >
+                    <label for="vernis" className="product-page__form--label"> Selectionnez votre vernis</label>
+                    <div>
+                        <select id="vernis">
+                        <option value="dark-Oak">{oneItem.varnish}</option>
+                        </select>
+                    </div>
+                    </form>
+                ))}
+            </div>
+            )
+
+    }*/
+    
+   
+
+///Save data on localStorage and add to Array "existingEntries"  
     function storeData() {
-        let setData = localStorage.setItem('myData', JSON.stringify(item));
-        let getData = localStorage.getItem('myData')
-         getData = JSON.parse(getData)
-        //console.log(getData)
+        var existingEntries = JSON.parse(localStorage.getItem("allItems"));
+        if(existingEntries == null) existingEntries = [];
+        localStorage.setItem('item', JSON.stringify(item));
+        existingEntries.push(item);
+        localStorage.setItem("allItems", JSON.stringify(existingEntries));
+        console.log(existingEntries)
+        
         }
 
+
+
+/*
+        let getData = localStorage.getItem('allItems')
+        getData = JSON.parse(getData)
+        console.log(getData)    
+    const ItemsList = ({getData}) => (
+        <div>
+            {getData.map(item=> (
+                <form >
+                <label for="vernis" className="product-page__form--label"> Selectionnez votre vernis</label>
+                    <div>
+                        <select id="vernis">
+                            {<option value="null"> </option>}
+                            {<option value="dark-Oak">{item.varnish}</option>}
+                            {<option value="light-oak">{item.varnish}</option>}
+                            {<option value="mahogany">{item.varnish}</option>}
+                        </select>
+                    </div>
+            </form>
+            ))}
+        </div>
+    )*/
     return (
               
         <div className="App">
@@ -50,19 +106,11 @@ function ProductPage({match}) {
                                 <p>Produit : {item.name}</p>
                                 <p>Prix : {item.price}€</p>
                                 <p>Description : {item.description}</p> 
+                                
                             </div>
                         </div>
                         <div className="product-page__form">
-                            <form  action="panier.html">
-                                <label for="vernis" className="product-page__form--label"> Selectionnez votre vernis</label>
-                                    <div>
-                                        <select id="vernis">
-                                            {<option value="dark-Oak">{item.varnish}</option>}
-                                            {<option value="light-oak">{item.varnish}</option>}
-                                            {<option value="mahogany">{item.varnish}</option>}
-                                        </select>
-                                    </div>
-                            </form>
+                            
                         </div>
                         <div className="btn product-page__btn">
                             <Link to ={`/cartPage`}>

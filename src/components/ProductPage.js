@@ -27,7 +27,7 @@ function ProductPage({match}) {
             setIsLoaded(true);
             setError(error);
         })
-    }, [])
+    }, [match.params._id])
 
 ///Maps varnish array and renders it in select option
     const arrVarnish = item.varnish
@@ -56,22 +56,6 @@ function ProductPage({match}) {
             existingEntriesVarnish.push(varnishOption); //Pushes the value in array
             localStorage.setItem("allVarnishOption", JSON.stringify(existingEntriesVarnish)); //adds the new value to lStorage    
         }
-
-        
-        /*let varnishOption2 = localStorage.getItem('varnishOption')
-        console.log(varnishOption2)*/
-        /*var existingEntriesVarnish = JSON.parse(localStorage.getItem("allVarnishOption"));
-        if(existingEntriesVarnish == null) existingEntriesVarnish = [];
-        localStorage.setItem('varnishOption', JSON.stringify(varnishOption));
-        existingEntriesVarnish.push(varnishOption);
-        localStorage.setItem("allVarnishOption", JSON.stringify(existingEntriesVarnish));
-        console.log(existingEntriesVarnish)*/
-///Saves varnish selection on dropdown form
-        /*function passVal() {
-            var selectText = document.getElementById('vernis').value
-            localStorage.setItem("ddValue", selectText)
-            return true;
-        }*/
 
 ///Error message after fetch
     if (error) {
@@ -102,7 +86,7 @@ function ProductPage({match}) {
                                 </div>
                                 <div className="product-page__form">
                                     <form>
-                                        <label for="vernis" className="product-page__form--label"> Selectionnez votre vernis</label>
+                                        <label htmlFor="vernis" className="product-page__form--label"> Selectionnez votre vernis</label>
                                         <div>
                                             <VarnishList arrVarnish={arrVarnish}/>    
                                         </div>
