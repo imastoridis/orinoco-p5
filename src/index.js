@@ -10,6 +10,7 @@ import {
   BrowserRouter as Router,
   Switch
 } from "react-router-dom";
+import ConfirmationPage from './components/ConfirmationPage';
 
 
 
@@ -21,6 +22,7 @@ ReactDOM.render(
         <Route path='/productPage/:_id' component={ProductPage} />
         <Route path='/productPage' component={ProductPage} />
         <Route path='/cartPage' component={CartPage} />
+        <Route path='/confirmationPage' component={ConfirmationPage}/>
        
         
       </Switch>

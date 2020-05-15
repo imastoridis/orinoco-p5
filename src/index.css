@@ -16,10 +16,6 @@ code {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 html {
   margin: 0;
@@ -45,7 +41,6 @@ img {
   justify-content: center;
   align-items: center;
   height: 45rem;
-  /*background-color: #23d7c3;*/
 }
 
 .header__banner--title {
@@ -65,8 +60,6 @@ img {
 }
 
 .header__img {
-  /*background-image: url("./images/background.jpg");
-  background-color: #cccccc;*/
   height: 500px;
   background-position: center;
   background-repeat: no-repeat;
@@ -79,24 +72,58 @@ img {
 }
 
 .navbar {
-  /*background-color: #553C2A;*/
   background-color: black;
   color: #f5f5f5;
   width: 100%;
   margin: auto;
   opacity: 0.8;
+  display: flex;
+  justify-content: space-around;
 }
 
 .nav__list-ul {
-  display: flex;
-  justify-content: space-around;
   list-style: none;
   align-items: center;
+  display: flex;
+  width: 100%;
 }
 
-.nav__list-li > a {
-  color:#f5f5f5;
+.nav__list-li {
+  
+  display: flex;
+  justify-content: flex-end;
+
+  width: 60%;
 }
+
+.nav__list-li-left{
+  color:#f5f5f5;
+  display: flex;
+  justify-content: center;
+  width: 40%;
+}
+
+.link{
+  justify-content: right;
+  margin-right: 25px;
+  width: 20%;
+}
+
+.logo{
+  border: 5px solid white;
+  padding: 15px;
+}
+
+.navbar__style{
+  color:#f5f5f5;
+  text-decoration: none;
+}
+
+.hover:hover {
+  color: aqua;
+  opacity: 0.7;
+}
+
 footer {
   background-color: black;
   color: #f5f5f5;
@@ -223,7 +250,6 @@ footer {
   width: 80%;
   justify-content: center;
   margin: auto;
-  /*background-color: #553C2A;*/
   background-color: 	#FFFAFA;
   margin-bottom: 15em;
   box-shadow: 10px 10px 10px 5px black;
@@ -235,7 +261,6 @@ footer {
   width: 90%;
   justify-content: center;
   margin: auto;
-  /*background-color: 	#FFFAFA;*/
   margin-bottom: 10px;
   
   opacity: 0.95;
@@ -316,7 +341,42 @@ tr:nth-child(even) {
 #form + #submit:hover {
   background-color: #18bfef;
 }
+/*CONFIRMATION PAGE */
 
+.confirmation-page {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  justify-content: center;
+  margin: auto;
+  background-color: 	#FFFAFA;
+  margin-top: 5em;
+  margin-bottom: 18em;
+  box-shadow: 10px 10px 10px 5px black;
+  opacity: 0.95;
+  padding-bottom: 2em;
+
+}
+
+.logo__confirmation-page{
+  border: 10px solid black;
+  font-size: 3.5em;
+  font-weight: bold;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.confirmation-page__logo{
+  justify-content: right;
+  text-align: center;
+  align-items: center;
+  width: 40%;
+  margin: auto;
+}
+
+li {
+  list-style: none;
+}
 /***********************************************
 Media querries
 */
@@ -394,5 +454,7 @@ Media querries
   .header__banner {
       text-align: left;
     }
-  
+  .logo{
+    font-size: 2em;
+  }
 }
