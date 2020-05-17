@@ -7,7 +7,7 @@ import Footer from './Footer'
 
 /// This page fetches specific item after onClick on ProductPage and renders it. 
 //When the user click on "Valider", it stores the choices on LocalStoraga
-
+//.post('https://jsonplaceholder.typicode.com/posts', this.state)
 function ProductPage({match}) {
 
     const [error, setError] = useState(null);

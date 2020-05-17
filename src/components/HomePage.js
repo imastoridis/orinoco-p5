@@ -1,6 +1,6 @@
 import React from 'react';
-//import { ProductSpecs, Header, Footer } from '../components';
 import Header from './Header'
+//import { ProductSpecs, Header, Footer } from '../components';
 import ProductTile from './ProductTile'
 import Footer from './Footer'
 

@@ -15,6 +15,7 @@ useEffect(() => {
     let getDataItems = JSON.parse(localStorage.getItem('allItems'))
     let getDataVarnish = JSON.parse(localStorage.getItem('allVarnishOption'))
     console.log(getDataItems)
+    
 ///Maps and displays items
 const ItemsName = ({getDataItems}) => (
     <div>
