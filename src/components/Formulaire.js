@@ -1,6 +1,9 @@
 import React from 'react'
 import axios from 'axios'
-import {Link} from 'react-router-dom'
+
+//import {Link} from 'react-router-dom'
+import history from './history';
+
 
 class Formulaire extends React.Component {
     constructor(props) {
@@ -19,38 +22,31 @@ class Formulaire extends React.Component {
         this.setState({ [e.target.name]: e.target.value })
     }
 
+    
+
+
+
     submitHandler = e => {
         e.preventDefault()
 ///Create const send which groups products array and contact object to POST 
-        //const products = localStorage.getItem("varnishOption")  // Test with only a string
+
         const allProducts = JSON.parse(localStorage.getItem("allItems"))
         const products = allProducts.map(itemId=>(itemId._id)) //Maps through arr to retrun id
-        //const products = JSON.stringify(allProductsArr) //Stingify the arr
-        //const products = productsStr.split(',') //Creates arr with id strings
-
-        console.log(Array.isArray(products))
-        console.log(typeof(products))
-        console.log(products)
-        
+ 
         const contact = this.state //Creates contact object with data from form
-        console.log(this.state)
-        console.log(typeof(contact))
-        console.log(typeof(contact.address))
-        console.log(typeof(contact.firstName))
-        console.log(typeof(contact.lastName))
-        console.log(typeof(contact.city))
-        console.log(typeof(contact.email))
 
         const send = {contact, products} //Creates const with contact object and products arr
-        console.log(typeof(send))
-        console.log(send)
+
+
 
         axios
         .post('http://localhost:3000/api/furniture/order', send)
         .then(response => {
             localStorage.setItem('myOrder', JSON.stringify(response.data) )
-        
-            console.log(response)
+
+            history.push('/confirmationPage')
+            window.location.reload();
+
         })
         .catch(error =>{
             console.log(error)
@@ -59,7 +55,7 @@ class Formulaire extends React.Component {
     }
     render() {
         const {firstname, secondname, address, town, email} = this.state
-    
+
         return (
             <section id="form"  >                 
                 <p id="textForm">
@@ -122,13 +118,11 @@ class Formulaire extends React.Component {
                         onChange={this.changeHandler} />
                     
                     <div className="form__button">
-                        <Link to={"/ConfirmationPage"}>
-                        <button type="submit" id="submit3" className="btn-style">VALIDER MA COMMANDE</button>
-                        </Link>
+
+                        <button type="submit" id="submit" className="btn-style">VALIDER MA COMMANDE</button>
                     </div>
-                    
                 </form>
-                
+
             </section>
         )
     }
