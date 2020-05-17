@@ -6,9 +6,19 @@ import {
 
 
 function Header() {
+    //If panier is empty then renders an empty cartPage
+    function click() {
+        var allItems = JSON.parse(localStorage.getItem("allItems"));
+        var allVarnishOption = JSON.parse(localStorage.getItem("allVarnishOption"));
+        if(allItems == null && allVarnishOption == null) {
+        let allVarnishOption = []
+        let allItems = []
+        localStorage.setItem("allVarnishOption", JSON.stringify(allVarnishOption))
+        localStorage.setItem("allItems", JSON.stringify(allItems))
+        }
+    }
     return (
         <div>
-
             <nav >
                 <div className="navbar">
                     <ul className="nav__list-ul">
@@ -22,18 +32,13 @@ function Header() {
                                 </Link>
                             </div>
                             <div className="link"> 
-
                                 <Link to={'/cartPage'} className="navbar__style">
-
-
-                                    <h2 className="hover">panier</h2>
+                                    <h2 onClick={click} className="hover">panier</h2>
                                 </Link>
                             </div>
                         </li>
                     </ul>     
                 </div>
-                      
-
             </nav> 
             <header className="header header__img">
                 <div className="header__banner">

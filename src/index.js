@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Homepage from './components/HomePage';
 import ProductPage from './components/ProductPage';
-
+import ProductPageNoProduct from './components/ProductPageNoProduct'
 import ConfirmationPage from './components/ConfirmationPage';
 import CartPage from './components/CartPage';
 import history from './components/history';
@@ -12,7 +12,8 @@ import * as serviceWorker from './serviceWorker';
 import {
   Route,
   BrowserRouter as Router,
-  Switch
+  Switch,
+  Redirect
 } from "react-router-dom";
 
 
@@ -21,14 +22,11 @@ ReactDOM.render(
     <Router >
       <Switch history={history}>
         <Route path='/' exact component={Homepage} />
-        <Route path='/productPage/:_id' component={ProductPage} />
-        <Route path='/productPage' component={ProductPage} />
-
+        <Route exact path='/productPage/:_id' component={ProductPage} />
+        <Route path='/productPage' component={Homepage} />
+        <Route render={() => <Redirect to="/" />} />
         <Route path='/cartPage' component={CartPage} />
         <Route path='/confirmationPage' component={ConfirmationPage}/>
-
-
-
 
       </Switch>
     </Router>
