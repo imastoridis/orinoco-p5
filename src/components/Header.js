@@ -8,6 +8,7 @@ import {
 function Header() {
     return (
         <div>
+
             <nav >
                 <div className="navbar">
                     <ul className="nav__list-ul">
@@ -21,7 +22,10 @@ function Header() {
                                 </Link>
                             </div>
                             <div className="link"> 
-                                <Link to={'/CartPage'} className="navbar__style">
+
+                                <Link to={'/cartPage'} className="navbar__style">
+
+
                                     <h2 className="hover">panier</h2>
                                 </Link>
                             </div>
@@ -29,6 +33,7 @@ function Header() {
                     </ul>     
                 </div>
                       
+
             </nav> 
             <header className="header header__img">
                 <div className="header__banner">
