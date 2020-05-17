@@ -8,19 +8,7 @@ import {
 function Header() {
     return (
         <div>
-<<<<<<< Updated upstream
-            <nav className="navbar">
-                <ul className="nav__list-ul">
-                    <li className="nav__list-li">
-                        <Link to={'/'}>
-                        <h1>Oniroco</h1> 
-                        </Link>
-                    </li>
-                    <li className="nav__list-li">
-                            <a className="nav__lists__item--right" href="panier.html">panier</a>
-                    </li>
-                </ul>           
-=======
+
             <nav >
                 <div className="navbar">
                     <ul className="nav__list-ul">
@@ -34,7 +22,10 @@ function Header() {
                                 </Link>
                             </div>
                             <div className="link"> 
+
                                 <Link to={'/cartPage'} className="navbar__style">
+
+
                                     <h2 className="hover">panier</h2>
                                 </Link>
                             </div>
@@ -42,7 +33,7 @@ function Header() {
                     </ul>     
                 </div>
                       
->>>>>>> Stashed changes
+
             </nav> 
             <header className="header header__img">
                 <div className="header__banner">

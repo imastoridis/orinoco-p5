@@ -16,42 +16,6 @@ code {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-/*@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-*/
-
 
 html {
   margin: 0;
@@ -64,6 +28,7 @@ img {
 
 #main-container {
   background-color:#f5f5f5;
+  background-image: url(./images/img-backgr.jpg);
   font-family: 'Abel', sans-serif;
   width: 100%;
   margin: auto;
@@ -76,7 +41,6 @@ img {
   justify-content: center;
   align-items: center;
   height: 45rem;
-  background-color: #23d7c3;
 }
 
 .header__banner--title {
@@ -96,8 +60,6 @@ img {
 }
 
 .header__img {
-  background-image: url("./images/background.jpg");
-  background-color: #cccccc;
   height: 500px;
   background-position: center;
   background-repeat: no-repeat;
@@ -110,29 +72,66 @@ img {
 }
 
 .navbar {
-  background-color: #553C2A;
+  background-color: black;
   color: #f5f5f5;
   width: 100%;
   margin: auto;
+  opacity: 0.8;
+  display: flex;
+  justify-content: space-around;
 }
 
 .nav__list-ul {
-  display: flex;
-  justify-content: space-around;
   list-style: none;
   align-items: center;
+  display: flex;
+  width: 100%;
 }
 
-.nav__list-li > a {
-  color:#f5f5f5;
+.nav__list-li {
+  
+  display: flex;
+  justify-content: flex-end;
+
+  width: 60%;
 }
+
+.nav__list-li-left{
+  color:#f5f5f5;
+  display: flex;
+  justify-content: center;
+  width: 40%;
+}
+
+.link{
+  justify-content: right;
+  margin-right: 25px;
+  width: 20%;
+}
+
+.logo{
+  border: 5px solid white;
+  padding: 15px;
+}
+
+.navbar__style{
+  color:#f5f5f5;
+  text-decoration: none;
+}
+
+.hover:hover {
+  color: aqua;
+  opacity: 0.7;
+}
+
 footer {
-  background-color: #553C2A;
+  background-color: black;
   color: #f5f5f5;
   padding: 0.5rem;
   display: flex;
   justify-content: space-between!important;
   flex-direction: row!important;
+  opacity: 0.8;
 }
 
 /* PRODUCT LIST */
@@ -147,8 +146,11 @@ footer {
   width: 100%;
   justify-content: center;
   margin: auto;
-  background-color: #553C2A;
+  /*background-color: #553C2A;*/
+  background-color: 	#FFFAFA;
   margin-bottom: 40px;
+  box-shadow: 10px 10px 10px 5px black;
+  opacity: 0.95;
 }
 
 .product__image {
@@ -165,14 +167,15 @@ footer {
   width: 100%;
   margin: auto;
   text-align: center;
-  color: #f5f5f5;
+  /*color: #f5f5f5;*/
+  color: #221812;
 }
 
 .product__specs-item{
   width: 100%;
   margin: auto;
   text-align: center;
-  color: #f5f5f5;
+  color: black;
 
 }
 .product__image--vintage-chair {
@@ -185,19 +188,25 @@ footer {
   text-align: center;
 }
 .btn-style {
-  padding: 0.8rem 0.8rem;
-  width: auto;
-  font-size: 0.8rem;
-  color: #fff;
-  background-color: #221812;
-  border: 0.1rem solid #221812;
-  border-radius: 1rem;
+  width: 100%;
+  border: none;
+  height: auto;
+  margin: 2rem 0 2rem 0;
+  line-height: 3.25rem;
+  background-color: #212931;
+  transition: background-color 200ms ease-in-out;
   cursor: pointer;
+  width: 70%;
+  color: white;
 }
 
 
 /* PRODUCT PAGE */
-
+.product{
+  display: flex;
+  flex-direction: column;
+ 
+}
 .product-page__main {
   justify-content: center;
   margin-top: 40px;
@@ -214,7 +223,10 @@ footer {
 }
 
 .product-page__image {
-  margin-bottom: 25px;
+  max-width: 50%;
+  justify-items: center;
+  margin: auto;
+  margin-bottom: 2.5em;
 }
 
 .btn__image-style {
@@ -231,7 +243,140 @@ footer {
   margin-bottom: 20px;
 }
 
+/* CART PAGE*/
+.cart-page {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  justify-content: center;
+  margin: auto;
+  background-color: 	#FFFAFA;
+  margin-bottom: 15em;
+  box-shadow: 10px 10px 10px 5px black;
+  opacity: 0.95;
+}
 
+.table {
+  font-family: arial, sans-serif;
+  width: 90%;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 10px;
+  
+  opacity: 0.95;
+}
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+  width: 20%;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+/*FORMULAIRE*/
+
+#form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  width: 100%;
+
+}
+.form__button{
+  width: 40%;
+}
+
+#form input {
+  width: 90%;
+  height: 2rem;
+  border: solid #eeeeee 2px;
+  margin: 2rem 0 0 0;
+}
+
+#textForm {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#textForm::before {
+  border-top: solid 2px #b6b6b6;
+  content: "";
+  display: inline-block;
+  width: 20%;
+  margin: 0 0 1rem 0;
+}
+
+#form textarea {
+  width: 90%;
+  margin: 2rem 0 0 0;
+  border: solid #eeeeee 2px;
+}
+
+#form + #submit {
+  width: 100%;
+  border: none;
+  height: auto;
+  margin: 2rem 0 2rem 0;
+  line-height: 3.25rem;
+  background-color: #212931;
+  transition: background-color 200ms ease-in-out;
+  cursor: pointer;
+  width: 70%;
+  color: white;
+}
+
+#form + #submit:hover {
+  background-color: #18bfef;
+}
+/*CONFIRMATION PAGE */
+
+.confirmation-page {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  justify-content: center;
+  margin: auto;
+  background-color: 	#FFFAFA;
+  margin-top: 5em;
+  margin-bottom: 18em;
+  box-shadow: 10px 10px 10px 5px black;
+  opacity: 0.95;
+  padding-bottom: 2em;
+
+}
+
+.logo__confirmation-page{
+  border: 10px solid black;
+  font-size: 3.5em;
+  font-weight: bold;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.confirmation-page__logo{
+  justify-content: right;
+  text-align: center;
+  align-items: center;
+  width: 40%;
+  margin: auto;
+}
+
+li {
+  list-style: none;
+}
 /***********************************************
 Media querries
 */
@@ -276,7 +421,7 @@ Media querries
   }
 
   .product {
-      flex-direction: row;
+     
       width: 50%;
       padding: 2rem;
       margin-bottom: 35px;
@@ -295,18 +440,21 @@ Media querries
   }
   /* BUTTON */
   .btn-style {
-      padding: 1rem 3rem;
-      width: auto;
-      font-size: 1rem;
-      color: #fff;
-      background-color: #221812;
-      border: 0.1rem solid #221812;
-      border-radius: 7rem;
-      cursor: pointer;
+    border: none;
+    height: auto;
+    margin: 2rem 0 2rem 0;
+    line-height: 3.25rem;
+    background-color: #212931;
+    transition: background-color 200ms ease-in-out;
+    cursor: pointer;
+    width: 100%;
+    color: white;
   }
 
   .header__banner {
       text-align: left;
     }
-  
+  .logo{
+    font-size: 2em;
+  }
 }

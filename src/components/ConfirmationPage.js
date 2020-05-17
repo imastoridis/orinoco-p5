@@ -5,7 +5,9 @@ import Footer from './Footer'
 function  ConfirmationPage() {
 
     let myOrder = JSON.parse(localStorage.getItem('myOrder'))
-    //console.log(myOrder.contact.city)
+
+    console.log(myOrder.contact.city)
+
 
     function SumPrices() {
         let getDataItems = JSON.parse(localStorage.getItem('allItems')),

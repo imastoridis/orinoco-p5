@@ -3,24 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Homepage from './components/HomePage';
 import ProductPage from './components/ProductPage';
-<<<<<<< Updated upstream
-import cartPage from './components/cartPage';
-=======
+
 import ConfirmationPage from './components/ConfirmationPage';
 import CartPage from './components/CartPage';
 import history from './components/history';
->>>>>>> Stashed changes
+
 import * as serviceWorker from './serviceWorker';
 import {
   Route,
   BrowserRouter as Router,
   Switch
 } from "react-router-dom";
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
-
 
 
 ReactDOM.render(
@@ -30,13 +23,13 @@ ReactDOM.render(
         <Route path='/' exact component={Homepage} />
         <Route path='/productPage/:_id' component={ProductPage} />
         <Route path='/productPage' component={ProductPage} />
-<<<<<<< Updated upstream
-        <Route path='/cartPage' component={cartPage} />
-        
-=======
+
         <Route path='/cartPage' component={CartPage} />
         <Route path='/confirmationPage' component={ConfirmationPage}/>
->>>>>>> Stashed changes
+
+
+
+
       </Switch>
     </Router>
     
