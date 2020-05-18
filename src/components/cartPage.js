@@ -74,8 +74,8 @@ function SumPrices() {
                 <HeaderCart />
                 <main>
                     <section className="cart-page">
-                        <div>
-                            <h1 >Votre panier</h1>
+                        <div className="text__cartpage">
+                            <h1>VOTRE PANIER</h1>
                         </div>
                         <table className="table">
                             <tbody>

@@ -21,11 +21,10 @@ function ProductTile() {
       <div>
           {items.map(item =>
               <div className="product" key={item._id}>
-              <div className="product__specs">
-                <h3>Meubles en chêne</h3>
+              <div className="product__specs">  
+                  <h2>Produit : {item.name}</h2>
                   <p>Vernis : {item.varnish}</p>
-                  <p>Produit : {item.name}</p>
-                  <p>Prix : {item.price}</p>
+                  <p>Prix : {item.price}€</p>
                   <p>Description : {item.description}</p> 
               </div>
     

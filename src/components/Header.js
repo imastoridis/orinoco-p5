@@ -40,7 +40,7 @@ function Header() {
                     </ul>     
                 </div>
             </nav> 
-            <header className="header header__img">
+            <header className="header">
                 <div className="header__banner">
                     <h2 className="header__banner--title"> Découvrez nos collections de meubles en chêne massif pour le salon, la salle à manger et la chambre.</h2>
                     <h2 className="header__banner--subtitle"> Des meubles en chêne massif pleins de caractère</h2>

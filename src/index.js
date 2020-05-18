@@ -24,10 +24,10 @@ ReactDOM.render(
         <Route path='/' exact component={Homepage} />
         <Route exact path='/productPage/:_id' component={ProductPage} />
         <Route path='/productPage' component={Homepage} />
-        <Route render={() => <Redirect to="/" />} />
+        
         <Route path='/cartPage' component={CartPage} />
         <Route path='/confirmationPage' component={ConfirmationPage}/>
-
+        <Route render={() => <Redirect to="/" />} />
       </Switch>
     </Router>
     

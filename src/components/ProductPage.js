@@ -70,31 +70,32 @@ function ProductPage({match}) {
                     <Header />
                     <main>
                         <section className="product-page__product">
-                            <div>
-                                <p>Personnaliser votre produit</p>
-                            </div>
-                            <div className="product-page__image">
-                                <img src={item.imageUrl} alt={item.name}/>
-                            </div>      
+                            
                             <div className="product" key={item._id}>
                                 <div className="product__specs-item">
-                                    <h3>Meubles en chêne</h3>
+                                        <h2>Produit : {item.name}</h2>
                                         <p>Vernis : {item.varnish}</p>
-                                        <p>Produit : {item.name}</p>
                                         <p>Prix : {item.price}€</p>
                                         <p>Description : {item.description}</p> 
                                 </div>
+                                <div className="product-page__image">
+                                <img src={item.imageUrl} alt={item.name}/>
+                            </div>      
                                 <div className="product-page__form">
-                                    <form>
-                                        <label htmlFor="vernis" className="product-page__form--label"> Selectionnez votre vernis</label>
+                                    <form id="sheet__form" className="sheet__form">
                                         <div>
-                                            <VarnishList arrVarnish={arrVarnish}/>    
+                                            <label htmlFor="vernis"> Selectionnez votre vernis</label>
+                                            
+                                                <VarnishList arrVarnish={arrVarnish}  />    
+                                            
                                         </div>
+                                        
                                     </form>
+                                    
                                 </div>
                                 <div className="btn product-page__btn">
                                 <Link to ={`/cartPage`}>
-                                <button onClick={storeData} type="button" className="btn-style btn__image-style">Valider</button>
+                                <button onClick={storeData} type="button" className="btn-style btn-style__product-page">Selectionnez</button>
                                 </Link>
                             </div> 
                             </div>
