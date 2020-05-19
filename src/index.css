@@ -500,7 +500,7 @@ div > .space {
 div > .space:after { content: ", " }
 
 /* removing it for the last index */
-div > .space:last-of-type:after { content: ", " }
+div > .space:last-of-type:after { content: "" }
 
   p {
     font-size: 25px;
