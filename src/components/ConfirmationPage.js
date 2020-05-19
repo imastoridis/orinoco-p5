@@ -1,13 +1,13 @@
 import React from 'react'
 import HeaderCart from './HeaderCart'
 import Footer from './Footer'
+import {
+    Link,
+  } from "react-router-dom";
 
 function  ConfirmationPage() {
 
     let myOrder = JSON.parse(localStorage.getItem('myOrder'))
-
-    console.log(myOrder.contact.city)
-
 
     function SumPrices() {
         let getDataItems = JSON.parse(localStorage.getItem('allItems')),
@@ -18,6 +18,15 @@ function  ConfirmationPage() {
           }
           return total
         }
+
+    ///Button - Empties LocalStorage and refreshes the DOM - Panier is then empty
+    function emptyLocalStorage() {
+        //localStorage.clear();
+        let allVarnishOption = []
+        let allItems = []
+        localStorage.setItem("allVarnishOption", JSON.stringify(allVarnishOption))
+        localStorage.setItem("allItems", JSON.stringify(allItems))
+    }   
     
     return (
         <div className="App">
@@ -46,6 +55,14 @@ function  ConfirmationPage() {
                                     </tbody>
                                 </table>
                             </div>
+                            <div className="form">
+                            <div className="form__button">
+                                <Link to={'/'} >
+                                    <button onClick={emptyLocalStorage} className="btn-style">Retour a l'accueil</button>
+                                </Link>
+
+                            </div>
+                        </div>
                         </div>
                     </main>
                     <Footer />

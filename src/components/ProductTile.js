@@ -33,7 +33,7 @@ function ProductTile() {
                 <Link to={`/productPage/${item._id}`}>
                   <div>
                       <br></br>
-                      <button className="btn-style btn__image-style">
+                      <button className="btn-style">
                           Selectionnez
                       </button>    
                   </div>

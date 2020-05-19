@@ -3,8 +3,6 @@ import {
     Link,
   } from "react-router-dom";
 
-
-
 function Header() {
     //If panier is empty then renders an empty cartPage
     function click() {
@@ -42,8 +40,8 @@ function Header() {
             </nav> 
             <header className="header">
                 <div className="header__banner">
-                    <h2 className="header__banner--title"> Découvrez nos collections de meubles en chêne massif pour le salon, la salle à manger et la chambre.</h2>
-                    <h2 className="header__banner--subtitle"> Des meubles en chêne massif pleins de caractère</h2>
+                    <h3 className="header__banner--title"> Découvrez nos collections de meubles en chêne massif pour le salon, la salle à manger et la chambre.</h3>
+                    <h3 className="header__banner--subtitle"> Des meubles en chêne massif pleins de caractère</h3>
                 </div>
             </header>
         </div>

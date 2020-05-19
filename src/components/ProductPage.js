@@ -6,8 +6,8 @@ import Header from './Header'
 import Footer from './Footer'
 
 /// This page fetches specific item after onClick on ProductPage and renders it. 
-//When the user click on "Valider", it stores the choices on LocalStoraga
-//.post('https://jsonplaceholder.typicode.com/posts', this.state)
+//When the user click on "Selectionnez", it stores the choices on LocalStoraga
+
 function ProductPage({match}) {
 
     const [error, setError] = useState(null);
@@ -31,6 +31,7 @@ function ProductPage({match}) {
 
 ///Maps varnish array and renders it in select option
     const arrVarnish = item.varnish
+
     var VarnishList = props => 
         <select className="vernis" id="vernis">{props.arrVarnish && props.arrVarnish.map((label,value) => 
             <option value={label} key={value}>
@@ -38,7 +39,6 @@ function ProductPage({match}) {
             </option>)}
         </select>
  
-
 ///Saves data on localStorage and adds to Array "existingEntries"  
     function storeData() {
         var existingEntries = JSON.parse(localStorage.getItem("allItems"));
@@ -70,28 +70,23 @@ function ProductPage({match}) {
                     <Header />
                     <main>
                         <section className="product-page__product">
-                            
                             <div className="product" key={item._id}>
                                 <div className="product__specs-item">
-                                        <h2>Produit : {item.name}</h2>
-                                        <p>Vernis : {item.varnish}</p>
-                                        <p>Prix : {item.price}€</p>
-                                        <p>Description : {item.description}</p> 
+                                    <h1 className="text-size--desktop-L">Produit : {item.name}</h1>
+                                    <p className="space text-size--desktop ">Vernis : {item.varnish} </p>
+                                    <p className="text-size--desktop">Prix : {item.price}€</p>
+                                    <p className="text-size--desktop">Description : {item.description}</p> 
                                 </div>
                                 <div className="product-page__image">
-                                <img src={item.imageUrl} alt={item.name}/>
-                            </div>      
+                                    <img src={item.imageUrl} alt={item.name}/>
+                                </div>      
                                 <div className="product-page__form">
                                     <form id="sheet__form" className="sheet__form">
                                         <div>
                                             <label htmlFor="vernis"> Selectionnez votre vernis</label>
-                                            
                                                 <VarnishList arrVarnish={arrVarnish}  />    
-                                            
-                                        </div>
-                                        
+                                        </div>          
                                     </form>
-                                    
                                 </div>
                                 <div className="btn product-page__btn">
                                 <Link to ={`/cartPage`}>
