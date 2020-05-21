@@ -34,7 +34,7 @@ class Formulaire extends React.Component {
         .post('http://localhost:3000/api/furniture/order', send)
         .then(response => {
             localStorage.setItem('myOrder', JSON.stringify(response.data) )
-            history.push('/confirmationPage') //Redirects to confirmation page
+            history.push('/confirmationpage') //Redirects to confirmation page
             window.location.reload();
         })
         .catch(error =>{

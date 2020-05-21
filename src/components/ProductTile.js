@@ -9,40 +9,47 @@ function ProductTile() {
     }, []);
 
     const [items, setItems] = useState([]);
-
+    const [error, setError] = useState(null);
     const fetchItems = async () => {
-      const data = await fetch('http://localhost:3000/api/furniture')
-      const items = await data.json();
-      console.log(items)
-      setItems(items)
-    };
+      try {
+        const data = await fetch('http://localhost:3000/api/furniture')
+        const items = await data.json();
+        setItems(items)
+      } catch (error) {
+        setError(error);
+      }
+    } 
 
-    return (
-      <div>
-          {items.map(item =>
-              <div className="product" key={item._id}>
-              <div className="product__specs">  
-                  <h2>Produit : {item.name}</h2>
-                  <p>Vernis : {item.varnish}</p>
-                  <p>Prix : {item.price}€</p>
-                  <p>Description : {item.description}</p> 
-              </div>
-    
-              <div className="product__specs">
-                <img src={item.imageUrl} alt={'test'}/>
-                <Link to={`/productPage/${item._id}`}>
-                  <div>
-                      <br></br>
-                      <button className="btn-style">
-                          Selectionnez
-                      </button>    
+    if (error) {
+      return <div><h3 className="error">{"Un problème technique ne permet pas d'accéder au service que vous désirez. Merci de réessayer ultérieurement"}</h3> </div>;
+      } else {
+        return (
+          <div>
+              {items.map(item =>
+                  <div className="product" key={item._id}>
+                  <div className="product__specs">  
+                      <h2>Produit : {item.name}</h2>
+                      <p>Vernis : {item.varnish}</p>
+                      <p>Prix : {item.price}€</p>
+                      <p>Description : {item.description}</p> 
                   </div>
-                </Link>
-              </div>
-              </div>
-              )}
-      </div>
-    )
+        
+                  <div className="product__specs">
+                    <img src={item.imageUrl} alt={'test'}/>
+                    <Link to={`/productPage/${item._id}`}>
+                      <div>
+                          <br></br>
+                          <button className="btn-style">
+                              Selectionnez
+                          </button>    
+                      </div>
+                    </Link>
+                  </div>
+                  </div>
+                  )}
+          </div>
+        )
+      }
 }
 
 export default ProductTile

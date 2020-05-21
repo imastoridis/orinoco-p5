@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Homepage from './components/HomePage';
 import ProductPage from './components/ProductPage';
-import ProductPageNoProduct from './components/ProductPageNoProduct'
+//import ProductPageNoProduct from './components/ProductPageNoProduct'
 import ConfirmationPage from './components/ConfirmationPage';
 import CartPage from './components/CartPage';
 import history from './components/history';
@@ -24,9 +24,8 @@ ReactDOM.render(
         <Route path='/' exact component={Homepage} />
         <Route exact path='/productPage/:_id' component={ProductPage} />
         <Route path='/productPage' component={Homepage} />
-        
-        <Route path='/cartPage' component={CartPage} />
-        <Route path='/confirmationPage' component={ConfirmationPage}/>
+        <Route path='/cartpage' component={CartPage} />
+        <Route path='/confirmationpage' component={ConfirmationPage}/>
         <Route render={() => <Redirect to="/" />} />
       </Switch>
     </Router>

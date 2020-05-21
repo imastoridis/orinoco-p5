@@ -89,7 +89,7 @@ function ProductPage({match}) {
                                     </form>
                                 </div>
                                 <div className="btn product-page__btn">
-                                <Link to ={`/cartPage`}>
+                                <Link to ={`/cartpage`}>
                                 <button onClick={storeData} type="button" className="btn-style btn-style__product-page">Selectionnez</button>
                                 </Link>
                             </div> 

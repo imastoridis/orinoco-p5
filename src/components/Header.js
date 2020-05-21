@@ -30,7 +30,7 @@ function Header() {
                                 </Link>
                             </div>
                             <div className="link"> 
-                                <Link to={'/cartPage'} className="navbar__style">
+                                <Link to={'/cartpage'} className="navbar__style">
                                     <h2 onClick={click} className="hover">panier</h2>
                                 </Link>
                             </div>

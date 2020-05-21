@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import HeaderCart from './HeaderCart'
 import Footer from './Footer'
 import Formulaire from './Formulaire'
@@ -12,7 +12,7 @@ function CartPage() {
         let getDataVarnish = JSON.parse(localStorage.getItem('allVarnishOption'))
         console.log(getDataItems)
         
-    ///Maps and displays items
+    ///Maps and displays ItemsName and ItemsPrice
     const ItemsName = ({getDataItems}) => (
         <div>
             {getDataItems.map(item=> (
@@ -54,6 +54,22 @@ function CartPage() {
         return total
         }
 
+    ///Button - Empties LocalStorage and refreshes the DOM - Panier is then empty
+    function emptyLocalStorage() {
+        //localStorage.clear();
+        let allVarnishOption = []
+        let allItems = []
+        let varnishOption = []
+        let item = []
+        let myOrder = []
+        localStorage.setItem("allVarnishOption", JSON.stringify(allVarnishOption))
+        localStorage.setItem("allItems", JSON.stringify(allItems))
+        localStorage.setItem("varnishOption", JSON.stringify(varnishOption))
+        localStorage.setItem("item", JSON.stringify(item))
+        localStorage.setItem("myOrder", JSON.stringify(myOrder))
+        window.location.reload()
+    }
+
         return (
             <div className="App">
                 <section id="main-container">
@@ -86,7 +102,7 @@ function CartPage() {
                                     <Link to={'/'} >
                                         <button className="btn-style">Continuer mon shopping</button>
                                     </Link>
-                                    <button className="btn-style">Vider mon panier</button>
+                                    <button onClick={emptyLocalStorage} className="btn-style">Vider mon panier</button>
                                 </div>
                             </div>
                             <div className="formulaire">

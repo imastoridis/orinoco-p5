@@ -1,5 +1,5 @@
 import React from 'react'
-import HeaderCart from './HeaderCart'
+import HeaderConfirmationPage from './HeaderConfirmationPage'
 import Footer from './Footer'
 import {
     Link,
@@ -19,19 +19,24 @@ function  ConfirmationPage() {
           return total
         }
 
-    ///Button - Empties LocalStorage and refreshes the DOM - Panier is then empty
+    ///Button - Empties LocalStorage - Panier is then empty
     function emptyLocalStorage() {
-        //localStorage.clear();
         let allVarnishOption = []
         let allItems = []
+        let varnishOption = []
+        let item = []
+        let myOrder = []
         localStorage.setItem("allVarnishOption", JSON.stringify(allVarnishOption))
         localStorage.setItem("allItems", JSON.stringify(allItems))
+        localStorage.setItem("varnishOption", JSON.stringify(varnishOption))
+        localStorage.setItem("item", JSON.stringify(item))
+        localStorage.setItem("myOrder", JSON.stringify(myOrder))
     }   
     
     return (
         <div className="App">
                 <section id="main-container">
-                    <HeaderCart />
+                    <HeaderConfirmationPage />
                     <main className="confirmation-page ">
                         <div className="confirmation-page-width">
                             <div className="confirmation-page__logo">
