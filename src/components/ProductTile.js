@@ -5,12 +5,12 @@ import {
 
 function ProductTile() {
     useEffect(()=> {
-        fetchItems();
+        FetchItems();
     }, []);
 
     const [items, setItems] = useState([]);
     const [error, setError] = useState(null);
-    const fetchItems = async () => {
+    const FetchItems = async () => {
       try {
         const data = await fetch('http://localhost:3000/api/furniture')
         const items = await data.json();

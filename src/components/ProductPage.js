@@ -2,8 +2,8 @@ import React, {useState, useEffect} from 'react'
 import {
     Link,
 } from "react-router-dom";
-import Header from './Header'
-import Footer from './Footer'
+import HeaderProductPage from '../headers/HeaderProductPage'
+import Footer from '../headers/Footer'
 
 /// This page fetches specific item after onClick on ProductPage and renders it. 
 //When the user click on "Selectionnez", it stores the choices on LocalStoraga
@@ -31,7 +31,6 @@ function ProductPage({match}) {
 
 ///Maps varnish array and renders it in select option
     const arrVarnish = item.varnish
-
     var VarnishList = props => 
         <select className="vernis" id="vernis">{props.arrVarnish && props.arrVarnish.map((label,value) => 
             <option value={label} key={value}>
@@ -40,8 +39,9 @@ function ProductPage({match}) {
         </select>
  
 ///Saves data on localStorage and adds to Array "existingEntries"  
-    function storeData() {
+    function StoreData() {
         var existingEntries = JSON.parse(localStorage.getItem("allItems"));
+        
         if(existingEntries == null) existingEntries = [];
         localStorage.setItem('item', JSON.stringify(item));
         existingEntries.push(item);
@@ -49,12 +49,12 @@ function ProductPage({match}) {
 
 ///Stores varnish selection on dropdown form, saves data on localStorage and adds to Array "existingEntriesVarnish"
         var varnishOption = document.getElementById('vernis').value //Gets value from dropdown form
-
         var existingEntriesVarnish = JSON.parse(localStorage.getItem("allVarnishOption")); //Takes previous values from lStorage
-            if(existingEntriesVarnish == null) existingEntriesVarnish = []; //Creates an empty array if no previous values
-            localStorage.setItem('varnishOption',varnishOption); ////Assigns value to varnishOption in lStorage 
-            existingEntriesVarnish.push(varnishOption); //Pushes the value in array
-            localStorage.setItem("allVarnishOption", JSON.stringify(existingEntriesVarnish)); //adds the new value to lStorage    
+        
+        if(existingEntriesVarnish == null) existingEntriesVarnish = []; //Creates an empty array if no previous values
+        localStorage.setItem('varnishOption',varnishOption); ////Assigns value to varnishOption in lStorage 
+        existingEntriesVarnish.push(varnishOption); //Pushes the value in array
+        localStorage.setItem("allVarnishOption", JSON.stringify(existingEntriesVarnish)); //adds the new value to lStorage    
         }
 
 ///Error message after fetch
@@ -67,13 +67,13 @@ function ProductPage({match}) {
         return (
             <div className="App">
                 <section id="main-container">
-                    <Header />
+                    <HeaderProductPage />
                     <main>
                         <section className="product-page__product">
                             <div className="product" key={item._id}>
                                 <div className="product__specs-item">
                                     <h1 className="text-size--desktop-L">Produit : {item.name}</h1>
-                                    <p className="space text-size--desktop ">Vernis : {item.varnish} </p>
+                                    <p className="space text-size--desktop ">Vernis : {item.varnish + ","}</p>
                                     <p className="text-size--desktop">Prix : {item.price}€</p>
                                     <p className="text-size--desktop">Description : {item.description}</p> 
                                 </div>
@@ -90,7 +90,7 @@ function ProductPage({match}) {
                                 </div>
                                 <div className="btn product-page__btn">
                                 <Link to ={`/cartpage`}>
-                                <button onClick={storeData} type="button" className="btn-style btn-style__product-page">Selectionnez</button>
+                                <button onClick={StoreData} type="button" className="btn-style btn-style__product-page">Selectionnez</button>
                                 </Link>
                             </div> 
                             </div>

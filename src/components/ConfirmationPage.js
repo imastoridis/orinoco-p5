@@ -1,6 +1,6 @@
 import React from 'react'
-import HeaderConfirmationPage from './HeaderConfirmationPage'
-import Footer from './Footer'
+import HeaderConfirmationPage from '../headers/HeaderConfirmationPage'
+import Footer from '../headers/Footer'
 import {
     Link,
   } from "react-router-dom";
@@ -20,7 +20,7 @@ function  ConfirmationPage() {
         }
 
     ///Button - Empties LocalStorage - Panier is then empty
-    function emptyLocalStorage() {
+    function EmptyLocalStorage() {
         let allVarnishOption = []
         let allItems = []
         let varnishOption = []
@@ -63,7 +63,7 @@ function  ConfirmationPage() {
                             <div className="form">
                             <div className="form__button">
                                 <Link to={'/'} >
-                                    <button onClick={emptyLocalStorage} className="btn-style">Retour a l'accueil</button>
+                                    <button onClick={EmptyLocalStorage} className="btn-style">Retour a l'accueil</button>
                                 </Link>
 
                             </div>

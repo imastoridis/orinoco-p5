@@ -1,8 +1,7 @@
 import React from 'react';
-import Header from './Header'
-//import { ProductSpecs, Header, Footer } from '../components';
+import Header from '../headers/Header'
 import ProductTile from './ProductTile'
-import Footer from './Footer'
+import Footer from '../headers/Footer'
 
 
 function HomePage() {

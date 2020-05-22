@@ -1,6 +1,6 @@
 import React from 'react'
-import HeaderCart from './HeaderCart'
-import Footer from './Footer'
+import HeaderCart from '../headers/HeaderCart'
+import Footer from '../headers/Footer'
 import Formulaire from './Formulaire'
 import {
     Link,
@@ -55,7 +55,7 @@ function CartPage() {
         }
 
     ///Button - Empties LocalStorage and refreshes the DOM - Panier is then empty
-    function emptyLocalStorage() {
+    function EmptyLocalStorage() {
         //localStorage.clear();
         let allVarnishOption = []
         let allItems = []
@@ -102,7 +102,7 @@ function CartPage() {
                                     <Link to={'/'} >
                                         <button className="btn-style">Continuer mon shopping</button>
                                     </Link>
-                                    <button onClick={emptyLocalStorage} className="btn-style">Vider mon panier</button>
+                                    <button onClick={EmptyLocalStorage} className="btn-style">Vider mon panier</button>
                                 </div>
                             </div>
                             <div className="formulaire">

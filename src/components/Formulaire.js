@@ -6,13 +6,13 @@ import history from './history';
 class Formulaire extends React.Component {
     constructor(props) {
         super(props)
-
         this.state= {
             firstName: '',
             lastName:'',
             address:'',
             city:'',
-            email:''
+            email:'',
+            hasError:false
         }
     }
 
@@ -22,8 +22,9 @@ class Formulaire extends React.Component {
 
     submitHandler = e => {
         e.preventDefault()
-        ///Creates const send which groups 'products array' and 'contact object' to POST 
+///Creates const "send" which groups 'products array' and 'contact object' to POST 
         const allProducts = JSON.parse(localStorage.getItem("allItems"))
+        
         const products = allProducts.map(itemId=>(itemId._id)) //Maps through arr to retrun id
  
         const contact = this.state //Creates contact object with data from form
@@ -38,13 +39,16 @@ class Formulaire extends React.Component {
             window.location.reload();
         })
         .catch(error =>{
+            this.setState({hasError:true})
             console.log(error)
         })
     }
 
     render() {
         const {firstname, secondname, address, town, email} = this.state
-
+        if (this.state.hasError) {
+            return <h3 className="error">Un problème technique ne permet pas d'accéder au service que vous désirez. Merci de réessayer ultérieurement</h3>;
+        } else {
         return (
             <section id="form"  >                 
                 <p id="textForm">
@@ -111,7 +115,7 @@ class Formulaire extends React.Component {
                     </div>
                 </form>
             </section>
-        )
+        )}
     }
 }
 

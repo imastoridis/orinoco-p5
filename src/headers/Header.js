@@ -24,11 +24,6 @@ function Header() {
                             <h1 className="logo">Oniroco</h1>
                         </li>
                         <li className="nav__list-li">
-                            <div className="link">
-                                <Link to={'/'} className="navbar__style">
-                                    <h2 className="hover">accueil </h2> 
-                                </Link>
-                            </div>
                             <div className="link"> 
                                 <Link to={'/cartpage'} className="navbar__style">
                                     <h2 onClick={click} className="hover">panier</h2>

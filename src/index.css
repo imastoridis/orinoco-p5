@@ -159,7 +159,6 @@ footer {
   width: 100%;
   margin: auto;
   text-align: center;
-  /*color: #f5f5f5;*/
   color: #221812;
 }
 
@@ -499,15 +498,10 @@ Media querries
   .product__specs-item {
     width: 90%;
 }
-div > .space {
-  display: inline-block;
-}
 
-/* appending the commas */
-div > .space:after { content: ", " }
 
-/* removing it for the last index */
-div > .space:last-of-type:after { content: "" }
+  /* removing it for the last index */
+  div > .space:last-of-type:after { content: "" }
 
   p {
     font-size: 25px;
