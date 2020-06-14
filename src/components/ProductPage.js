@@ -38,7 +38,8 @@ function ProductPage({match}) {
             </option>)}
         </select>
  
-///Saves data on localStorage and adds to Array "existingEntries" which is then stored in item/allItems 
+///When button is clicked : Saves data on localStorage and adds to Array "existingEntries" 
+//which is then stored in item/allItems 
     function StoreData() {
         var existingEntries = JSON.parse(localStorage.getItem("allItems"));
         
@@ -65,7 +66,6 @@ function ProductPage({match}) {
         } else {
 
         return (
-
             <div className="App">
                 <section id="main-container">
                     <HeaderProductPage />

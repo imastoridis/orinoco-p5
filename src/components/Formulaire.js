@@ -20,14 +20,15 @@ class Formulaire extends React.Component {
     }
 
     submitHandler = e => {
-//Checks if localStorage is empty. If empty, returns alert
+//Checks if localStorage/panier is empty. If empty, returns alert
         var isEmpty = localStorage.getItem('item');
+
         if (isEmpty.length > 2 ) {
             e.preventDefault()
 ///Creates const "send" which groups 'products' array and 'contact' object to POST 
                 const allProducts = JSON.parse(localStorage.getItem("allItems"))
                 
-                const products = allProducts.map(itemId=>(itemId._id)) //Maps through arr to retrun id
+                const products = allProducts.map(itemId=>(itemId._id)) //Maps through arr to return id
             
                 const contact = this.state //Creates contact object with data from form
         

@@ -145,16 +145,6 @@ footer {
   opacity: 0.95;
 }
 
-.product__image {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 100%;
-  min-height: 30px;
-  max-height: auto; /* to check!!!!!!!!!!!!!!!!!!!!!!!*/
-  background-color: #553C2A;
-}
-
 .product__specs {
   width: 100%;
   margin: auto;
