@@ -2,7 +2,6 @@ import React from 'react'
 import axios from 'axios'
 import history from './history';
 
-
 class Formulaire extends React.Component {
     constructor(props) {
         super(props)
@@ -21,27 +20,33 @@ class Formulaire extends React.Component {
     }
 
     submitHandler = e => {
-        e.preventDefault()
-///Creates const "send" which groups 'products array' and 'contact object' to POST 
-        const allProducts = JSON.parse(localStorage.getItem("allItems"))
+//Checks if localStorage is empty. If empty, returns alert
+        var isEmpty = localStorage.getItem('item');
+        if (isEmpty.length > 2 ) {
+            e.preventDefault()
+///Creates const "send" which groups 'products' array and 'contact' object to POST 
+                const allProducts = JSON.parse(localStorage.getItem("allItems"))
+                
+                const products = allProducts.map(itemId=>(itemId._id)) //Maps through arr to retrun id
+            
+                const contact = this.state //Creates contact object with data from form
         
-        const products = allProducts.map(itemId=>(itemId._id)) //Maps through arr to retrun id
- 
-        const contact = this.state //Creates contact object with data from form
-
-        const send = {contact, products} //Creates const with contact object and products arr
-
-        axios
-        .post('http://localhost:3000/api/furniture/order', send)
-        .then(response => {
-            localStorage.setItem('myOrder', JSON.stringify(response.data) )
-            history.push('/confirmationpage') //Redirects to confirmation page
-            window.location.reload();
-        })
-        .catch(error =>{
-            this.setState({hasError:true})
-            console.log(error)
-        })
+                const send = {contact, products} //Creates const with contact object and products arr
+                
+                axios
+                .post('http://localhost:3000/api/furniture/order', send)
+                .then(response => {
+                    localStorage.setItem('myOrder', JSON.stringify(response.data) )
+                    history.push('/confirmationpage') //Redirects to confirmation page
+                    window.location.reload(); 
+                })
+                .catch(error =>{
+                    this.setState({hasError:true})
+                    console.log(error)
+                })
+        } else {
+            alert("Merci de rajouter un produit dans votre panier.");
+        }
     }
 
     render() {

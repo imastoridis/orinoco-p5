@@ -1,5 +1,7 @@
 import React from 'react'
 
+//Component that renders the Header on ConfirmationPage
+
 function HeaderConfirmationPage() {
     return (
         <div>

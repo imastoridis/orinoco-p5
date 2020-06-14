@@ -3,8 +3,11 @@ import {
     Link,
   } from "react-router-dom";
 
+//Component that renders the Header on ProductPage
+
 function HeaderProductPage() {
-    //If panier is empty then renders an empty cartPage
+    //Function for click on "panier" in the header. If panier is empty then renders an empty cartPage
+    
     function click() {
         var allItems = JSON.parse(localStorage.getItem("allItems"));
         var allVarnishOption = JSON.parse(localStorage.getItem("allVarnishOption"));

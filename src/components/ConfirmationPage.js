@@ -6,7 +6,7 @@ import {
   } from "react-router-dom";
 
 function  ConfirmationPage() {
-
+    //Changes myOrder from string to JS Object
     let myOrder = JSON.parse(localStorage.getItem('myOrder'))
 
     function SumPrices() {
@@ -19,7 +19,7 @@ function  ConfirmationPage() {
           return total
         }
 
-    ///Button - Empties LocalStorage - Panier is then empty
+    //Button - Empties LocalStorage - Panier is then empty
     function EmptyLocalStorage() {
         let allVarnishOption = []
         let allItems = []
@@ -73,8 +73,6 @@ function  ConfirmationPage() {
                     <Footer />
                 </section>
         </div>
-        
-       
     )
 }
 

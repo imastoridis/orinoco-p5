@@ -5,7 +5,7 @@ import {
 import HeaderProductPage from '../headers/HeaderProductPage'
 import Footer from '../headers/Footer'
 
-/// This page fetches specific item after onClick on ProductPage and renders it. 
+/// This page fetches a specific item after onClick on ProductPage and renders it. 
 //When the user click on "Selectionnez", it stores the choices on LocalStoraga
 
 function ProductPage({match}) {
@@ -38,7 +38,7 @@ function ProductPage({match}) {
             </option>)}
         </select>
  
-///Saves data on localStorage and adds to Array "existingEntries"  
+///Saves data on localStorage and adds to Array "existingEntries" which is then stored in item/allItems 
     function StoreData() {
         var existingEntries = JSON.parse(localStorage.getItem("allItems"));
         
@@ -54,7 +54,7 @@ function ProductPage({match}) {
         if(existingEntriesVarnish == null) existingEntriesVarnish = []; //Creates an empty array if no previous values
         localStorage.setItem('varnishOption',varnishOption); ////Assigns value to varnishOption in lStorage 
         existingEntriesVarnish.push(varnishOption); //Pushes the value in array
-        localStorage.setItem("allVarnishOption", JSON.stringify(existingEntriesVarnish)); //adds the new value to lStorage    
+        localStorage.setItem("allVarnishOption", JSON.stringify(existingEntriesVarnish)); //adds the new value to lStorage to allVarnishOption   
         }
 
 ///Error message after fetch
@@ -65,6 +65,7 @@ function ProductPage({match}) {
         } else {
 
         return (
+
             <div className="App">
                 <section id="main-container">
                     <HeaderProductPage />
@@ -93,9 +94,7 @@ function ProductPage({match}) {
                                 <button onClick={StoreData} type="button" className="btn-style btn-style__product-page">Selectionnez</button>
                                 </Link>
                             </div> 
-                            </div>
-                            
-                           
+                            </div>      
                         </section>
                     </main>
                     <Footer />

@@ -3,6 +3,8 @@ import {
   Link,
 } from "react-router-dom";
 
+/// This Component renders all furniture items from the API. It is used on Homepage Component
+
 function ProductTile() {
     useEffect(()=> {
         FetchItems();
@@ -12,14 +14,16 @@ function ProductTile() {
     const [error, setError] = useState(null);
     const FetchItems = async () => {
       try {
-        const data = await fetch('http://localhost:3000/api/furniture')
+        const data = await fetch('http://localhost:3000/api/furniture') //Fetches furniture from API
         const items = await data.json();
-        setItems(items)
+        setItems(items) //Sets the data in "items"
       } catch (error) {
         setError(error);
       }
     } 
 
+    //Maps through "items" and renders the furniture
+    //Error if server is not responding.
     if (error) {
       return <div><h3 className="error">{"Un problème technique ne permet pas d'accéder au service que vous désirez. Merci de réessayer ultérieurement"}</h3> </div>;
       } else {

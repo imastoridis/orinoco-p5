@@ -3,7 +3,7 @@ import {
     Link,
   } from "react-router-dom";
 
-
+//Component that renders the Header on CartPage
 
 function HeaderCart() {
     return (

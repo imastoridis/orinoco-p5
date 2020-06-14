@@ -3,11 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Homepage from './components/HomePage';
 import ProductPage from './components/ProductPage';
-//import ProductPageNoProduct from './components/ProductPageNoProduct'
 import ConfirmationPage from './components/ConfirmationPage';
 import CartPage from './components/CartPage';
 import history from './components/history';
-
 import * as serviceWorker from './serviceWorker';
 import {
   Route,

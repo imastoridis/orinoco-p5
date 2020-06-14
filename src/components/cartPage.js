@@ -56,7 +56,6 @@ function CartPage() {
 
     ///Button - Empties LocalStorage and refreshes the DOM - Panier is then empty
     function EmptyLocalStorage() {
-        //localStorage.clear();
         let allVarnishOption = []
         let allItems = []
         let varnishOption = []

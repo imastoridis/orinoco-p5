@@ -151,7 +151,7 @@ footer {
   background-size: contain;
   width: 100%;
   min-height: 30px;
-  max-height: auto;
+  max-height: auto; /* to check!!!!!!!!!!!!!!!!!!!!!!!*/
   background-color: #553C2A;
 }
 
@@ -281,27 +281,6 @@ tr:nth-child(even) {
   flex-direction: column;
   align-items: center;
 }
-
-/*#textForm::before {
-  border-top: solid 2px #b6b6b6;
-  content: "";
-  display: inline-block;
-  width: 20%;
-  margin: 0 0 1rem 0;
-}
-
-#form + #submit {
-  width: 100%;
-  border: none;
-  height: auto;
-  margin: 2rem 0 2rem 0;
-  line-height: 3.25rem;
-  background-color: #212931;
-  cursor: pointer;
-  width: 70%;
-  color: white;
-
-}*/
 
 #form textarea {
   width: 90%;
@@ -499,7 +478,6 @@ Media querries
     width: 90%;
 }
 
-
   /* removing it for the last index */
   div > .space:last-of-type:after { content: "" }
 
@@ -526,10 +504,8 @@ Media querries
 
   }
 
- 
 /* LABEL - DROPDOWN MENU */
   
-
   .sheet__form div {
     width: 100%;
     margin: 1rem 0;
