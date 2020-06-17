@@ -16,8 +16,8 @@ function  ConfirmationPage() {
         for (i = 0; i < getDataItems.length; i++) {
             total += parseInt(getDataItems[i].price);
           }
-          return total
-        }
+          return  ((total/100).toLocaleString('fr-FR',{minimumFractionDigits:2}))
+    }
 
     //Button - Empties LocalStorage - Panier is then empty
     function EmptyLocalStorage() {

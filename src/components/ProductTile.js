@@ -34,7 +34,7 @@ function ProductTile() {
                   <div className="product__specs">  
                       <h2>Produit : {item.name}</h2>
                       <p>Vernis : {item.varnish}</p>
-                      <p>Prix : {item.price}€</p>
+                      <p>Prix : {((item.price)/100).toLocaleString('fr-FR',{minimumFractionDigits:2})}€</p>
                       <p>Description : {item.description}</p> 
                   </div>
         

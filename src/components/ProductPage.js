@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {
-    Link,
-} from "react-router-dom";
+import {Link} from "react-router-dom";
 import HeaderProductPage from '../headers/HeaderProductPage'
 import Footer from '../headers/Footer'
 
@@ -44,21 +42,23 @@ function ProductPage({match}) {
         var existingEntries = JSON.parse(localStorage.getItem("allItems"));
         
         if(existingEntries == null) existingEntries = [];
+        
         localStorage.setItem('item', JSON.stringify(item));
         existingEntries.push(item);
         localStorage.setItem("allItems", JSON.stringify(existingEntries));
 
-///Stores varnish selection on dropdown form, saves data on localStorage and adds to Array "existingEntriesVarnish"
+//Stores varnish selection on dropdown form, saves data on localStorage and adds to Array "existingEntriesVarnish"
         var varnishOption = document.getElementById('vernis').value //Gets value from dropdown form
         var existingEntriesVarnish = JSON.parse(localStorage.getItem("allVarnishOption")); //Takes previous values from lStorage
         
         if(existingEntriesVarnish == null) existingEntriesVarnish = []; //Creates an empty array if no previous values
+        
         localStorage.setItem('varnishOption',varnishOption); ////Assigns value to varnishOption in lStorage 
         existingEntriesVarnish.push(varnishOption); //Pushes the value in array
         localStorage.setItem("allVarnishOption", JSON.stringify(existingEntriesVarnish)); //adds the new value to lStorage to allVarnishOption   
-        }
+    }
 
-///Error message after fetch
+//Error message after fetch
     if (error) {
         return <div> {'Erreur de connection'}</div>;
         } else if (!isLoaded) {
@@ -75,7 +75,7 @@ function ProductPage({match}) {
                                 <div className="product__specs-item">
                                     <h1 className="text-size--desktop-L">Produit : {item.name}</h1>
                                     <p className="space text-size--desktop ">Vernis : {item.varnish + ","}</p>
-                                    <p className="text-size--desktop">Prix : {item.price}€</p>
+                                    <p className="text-size--desktop">Prix : {((item.price)/100).toLocaleString('fr-FR',{minimumFractionDigits:2})}€</p>
                                     <p className="text-size--desktop">Description : {item.description}</p> 
                                 </div>
                                 <div className="product-page__image">

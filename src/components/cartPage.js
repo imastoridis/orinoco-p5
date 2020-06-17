@@ -26,7 +26,7 @@ function CartPage() {
         <div>
             {getDataItems.map(item=> (
                 <div className="table" key={item.price}>
-                    {item.price}€
+                    {((item.price)/100).toLocaleString('fr-FR',{minimumFractionDigits:2})}€
                 </div>
             ))}
         </div>
@@ -51,8 +51,8 @@ function CartPage() {
         for (i = 0; i < getDataItems.length; i++) {
             total += parseInt(getDataItems[i].price);
         }
-        return total
-        }
+        return ((total/100).toLocaleString('fr-FR',{minimumFractionDigits:2}))
+    }
 
     ///Button - Empties LocalStorage and refreshes the DOM - Panier is then empty
     function EmptyLocalStorage() {

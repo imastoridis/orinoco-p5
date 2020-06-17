@@ -25,6 +25,7 @@ class Formulaire extends React.Component {
 
         if (isEmpty.length > 2 ) {
             e.preventDefault()
+            
 ///Creates const "send" which groups 'products' array and 'contact' object to POST 
                 const allProducts = JSON.parse(localStorage.getItem("allItems"))
                 
