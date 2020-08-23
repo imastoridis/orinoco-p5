@@ -23,6 +23,5 @@ Pour installer ce projet :
 
 1. Cloner l'API
 2. ```npm install``` dans les dossiers /backend et /frontend
-3. Importer les tables de /SQL_DB
 4. 'npm start' dans /frontend
 5. 'nodemon server' dans /backend
